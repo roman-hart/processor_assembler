@@ -36,15 +36,15 @@ public:
     }
 
     void show_values() {cout << "R1 value: " << R1.to_ulong() << endl << "R2 value: " << R2.to_ulong() << endl;}
-    void show_takt(string full_command) {++TC; cout << ">>> " << full_command << endl; show();}
-    //void sign() {if (R1[0]==0)
-    void show() {
+    void show_tic(string full_command, std::bitset<BITS_LENTH> *R_ptr) {++TC; cout << ">>>> " << full_command << endl; show(R_ptr);}
+    void show_sign(std::bitset<BITS_LENTH> *R) {if ((*R)[BITS_LENTH-1] == 0) {cout << "+";} else {cout << "-";};}
+    void show(std::bitset<BITS_LENTH> *R_ptr) {
         cout << left;
     	cout << setw(5) << "R1: " << R1 << endl;;
     	cout << setw(5) << "R2: " << R2 << endl;;
-    	cout << setw(5) << "PS: " << R1[0] << endl;
-    	cout << setw(5) << "PC: " << PC << endl;
-    	cout << setw(5) << "TC: " << TC << endl;
+    	cout << setw(5) << "PS: "; show_sign(R_ptr); cout << endl; // PS - sign of the last result
+    	cout << setw(5) << "PC: " << PC << endl; // PC - command counter
+    	cout << setw(5) << "TC: " << TC << endl; // TC - ticker counter
     	cout << "_______________________________________________________________" << endl;
     }
 };
@@ -70,7 +70,7 @@ void Processor::command_processing(string command, string A, string B) {
 	} else {
 	    what = std::stoi(B);
 	}
-	show_takt(full_command);
+	show_tic(full_command, where);
 
 	/* Second processor tic for the command*/
 	if (command == "mov") {
@@ -84,12 +84,11 @@ void Processor::command_processing(string command, string A, string B) {
 	} else {
 	    throw invalid_argument("received inappropriate command");
 	}
-	show_takt(full_command);
+	show_tic(full_command, where);
 }
 
 
-int main()
-{
+int main() {
     Processor P;
     string str;
 	string words[3];
