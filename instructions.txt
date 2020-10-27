@@ -1,0 +1,4 @@
+mov R1, 3
+inv R1, R1
+add R1, 1
+com R2, 3
