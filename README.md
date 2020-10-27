@@ -4,8 +4,6 @@
 <br>
 
 
-# Available commands
-
 All commands have to be supplemented with 2 arguments: first - a name of the register, where the result will be stored, second - integer or register to take data from.
 
 Command       | Method name  
