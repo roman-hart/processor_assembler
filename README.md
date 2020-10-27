@@ -22,8 +22,29 @@ com R2, 3
 
 will work the same as
 
-```cpp
+```
 mov R1, 3
 inv R1, R1
 add R1, 1
 ```
+
+Output for `mov R1, 3`:
+
+```
+>>>> mov R1, 3                                                                                                                                                                              
+R1:  000111001111101100110010010111                                                                                                                                                         
+R2:  101000011100100110100001110110                                                                                                                                                         
+PS:  +                                                                                                                                                                                      
+PC:  1                                                                                                                                                                                      
+TC:  1                                                                                                                                                                                      
+_______________________________________________________________
+>>>> mov R1, 3                                                                                                                                                                              
+R1:  000000000000000000000000000011                                                                                                                                                         
+R2:  101000011100100110100001110110                                                                                                                                                         
+PS:  +                                                                                                                                                                                      
+PC:  1                                                                                                                                                                                      
+TC:  2                                                                                                                                                                                      
+_______________________________________________________________
+```
+
+Here you can see all registers: R1 and R2 to store information, PS - staus register, here - sign of the last opperation / first element in processed register, PC and TC - command and ticker couters.
