@@ -11,10 +11,12 @@ All commands have to be supplemented with 2 arguments: first - a name of the reg
 Command       | Method name  
 ------------- | -------------
 mov      | Moves information to some register
-inv     | Invert beats
-add     | Add info to some register  
-com     | Сomplement to an integer
+inv     | Inverts beats
+add     | Adds integer to some register  
+com     | Сomplementation code for an integer
 
+
+This command
 
 ```
 com R2, 3
