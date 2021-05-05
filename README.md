@@ -54,11 +54,11 @@ fdiv     | Divide value in the second register by the value in the first, clear 
 fdub     | Shift values down then insert the value in second register in the first (dublicates)
 
 <br>
-<h3 align="center">Functions to encode and decode floating point numbers for IEEE754 standard using bitset library</h3>
+<h3 align="center">Functions to encode and decode numbers for IEEE754 standard using bitset library</h3>
 
 From double to bitset (IEEE 754):
 
-```
+```cpp
 std::bitset<BITS_LENTH> Processor::to_ieee754(double x) {
     if (x == 0) {
         return std::bitset<BITS_LENTH> (0);
@@ -86,7 +86,7 @@ std::bitset<BITS_LENTH> Processor::to_ieee754(double x) {
 ```
 
 From bitset (IEEE 754) to double:
-```
+```cpp
 double Processor::from_ieee754(std::bitset<BITS_LENTH> &x) {
     std::bitset<MANTISSA_LENTH> m;
     int sign = x[BITS_LENTH-1] == 0 ? 1 : -1;
