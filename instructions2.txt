@@ -1,0 +1,6 @@
+finit
+fild 1.333 // b
+fdub
+fild -10.222 // a
+fadd
+fdiv
